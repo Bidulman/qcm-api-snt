@@ -1,0 +1,2 @@
+class NoMoreQuestionError(BaseException):
+    pass

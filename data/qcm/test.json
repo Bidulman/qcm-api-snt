@@ -1,0 +1,42 @@
+{
+
+	"name": "Test",
+	
+	"questions": [
+	
+		{
+			"name": "Que fait le chat ?",
+			"possibilities": [
+				{"valid": true, "text": "Meow"},
+				{"valid": false, "text": "Waf"}
+			]
+		},
+		
+		{
+			"name": "Que fait le chien ?",
+			"possibilities": [
+				{"valid": false, "text": "Meow"},
+				{"valid": true, "text": "Waf"}
+			]
+		},
+		
+		{
+			"name": "Que fait la vache ?",
+			"possibilities": [
+				{"valid": false, "text": "Pouet"},
+				{"valid": true, "text": "Meuh"}
+			]
+		},
+		
+		{
+			"name": "Que fait l'abeille ?",
+			"possibilities": [
+				{"valid": true, "text": "Bzzz"},
+				{"valid": false, "text": "Pas bzzz"},
+				{"valid": true, "text": "Bzzz quand même"}
+			]
+		}
+		
+	]
+	
+}

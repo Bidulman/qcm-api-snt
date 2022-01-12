@@ -1,0 +1,1 @@
+print("Loaded module manager by Bidulman")
