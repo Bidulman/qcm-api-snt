@@ -131,5 +131,8 @@ dmypy.json
 # IntelliJ files
 .idea/
 
+# Database file
+database.db
+
 # Tests files
 tests.py

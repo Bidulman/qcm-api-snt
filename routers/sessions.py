@@ -58,19 +58,19 @@ class SessionsRouter(Router):
 
             with self.database as cursor:
 
-                cursor.execute("SELECT permission FROM users WHERE id=?", (session.user,))
+                cursor.execute("SELECT id, permission FROM users WHERE nick=? AND password=?", (session.username, session.password))
                 user = cursor.fetchone()
                 if not user:
                     raise HTTPException(404, "User does not exist")
-                permission = user[0]
+                user_id, permission = user
 
-                cursor.execute("DELETE FROM sessions WHERE user=?", (session.user,))
+                cursor.execute("DELETE FROM sessions WHERE user=?", (user_id,))
 
                 time = round(datetime.now().timestamp())
                 token = token_hex(self.config['TOKEN_SECURITY'][permission])
-                cursor.execute("INSERT INTO sessions (time, user, token) VALUES (?, ?, ?)", (time, session.user, token))
+                cursor.execute("INSERT INTO sessions (time, user, token) VALUES (?, ?, ?)", (time, user_id, token))
 
-                cursor.execute("SELECT id, time, user, token FROM sessions WHERE user=?", (session.user,))
+                cursor.execute("SELECT id, time, user, token FROM sessions WHERE user=?", (user_id,))
                 session = cursor.fetchone()
 
             return {'id': session[0], 'time': session[1], 'user': session[2], 'token': session[3]}

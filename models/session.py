@@ -6,4 +6,5 @@ class Session(BaseModel):
 
 
 class NewSession(BaseModel):
-    user: int
+    username: str
+    password: str
