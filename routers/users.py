@@ -10,7 +10,7 @@ class UsersRouter(Router):
 
     def methods(self):
 
-        @self.router.get('/')
+        @self.router.get('/all')
         async def get_users(key: models.ApiKey):
 
             api_key_check = self.check_api_key(key.key, 'super')

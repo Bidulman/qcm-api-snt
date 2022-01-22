@@ -11,6 +11,7 @@ app = FastAPI()
 database = DataBase()
 
 app.include_router(routers.UsersRouter(config, database).router)
+app.include_router(routers.SessionsRouter(config, database).router)
 
 
 @app.get('/', response_model=models.ApiInfo)

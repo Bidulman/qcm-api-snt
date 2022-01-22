@@ -21,6 +21,7 @@ class DataBase:
 
         cursor.execute("CREATE TABLE IF NOT EXISTS api_keys (id INTEGER PRIMARY KEY AUTOINCREMENT, permission TEXT, key TEXT)")
         cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, nick TEXT, password TEXT, permission TEXT)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS sessions (id INTEGER PRIMARY KEY AUTOINCREMENT, time INTEGER, user INTEGER, token TEXT)")
         cursor.execute("CREATE TABLE IF NOT EXISTS qcms (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)")
         cursor.execute("CREATE TABLE IF NOT EXISTS questions (id TEXT PRIMARY KEY, name TEXT, possibilities TEXT)")
         cursor.execute("CREATE TABLE IF NOT EXISTS possibilities (id TEXT PRIMARY KEY, valid INTEGER, text TEXT)")
